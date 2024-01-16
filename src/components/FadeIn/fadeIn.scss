@@ -1,0 +1,8 @@
+.hidden {
+    opacity: 0;
+}
+
+.fade-in-element {
+    animation: fade-in 1.4s;
+    opacity: 1;
+}

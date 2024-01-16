@@ -1,0 +1,44 @@
+footer.footer {
+    width: 100%;
+    align-self: strech;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: $blue-0;
+    margin-top: auto;
+    
+    @include desktop {
+        padding: 1rem 1.5rem;
+    }
+
+    @include apply-to-multiple-media(mobile, tablet) {
+        padding: 1rem  1.25rem;
+    }
+
+    .title {
+        color: $white;
+        font-weight: 500;
+        font-size: 0.75em;
+    }
+
+    .contacts {
+        display: flex;
+        width: 100%;
+        gap: 0.5rem;
+        
+        @include desktop {
+            justify-content: flex-end;
+        }
+
+        @include apply-to-multiple-media(mobile, tablet) {
+            justify-content: flex-start;
+        }
+
+        .link {
+            color: $white;
+            font-weight: 500;
+            font-size: 0.75em;
+            word-break: break-all;
+        }
+    }
+}

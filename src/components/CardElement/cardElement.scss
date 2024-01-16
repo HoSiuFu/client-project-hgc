@@ -1,0 +1,140 @@
+.card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-flow: column;
+    height: 100%;
+
+    .image-container {
+        align-self: stretch;
+        display: flex;
+        padding: 1rem;
+
+        .image {
+            object-fit: cover;
+            width: 100%;
+            box-shadow: 0.25rem 0.25rem 0.25rem 0.125rem rgba($black, 0.25);
+            height: 15rem;
+        }
+    }
+
+    .title-container {
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        margin: 0 2rem;
+        background: $white;
+        box-shadow: 0.25rem 0.25rem 0.25rem 0.125rem rgba($black, 0.25);
+        padding: 1rem 2rem;
+        margin: 0 2rem;
+        right: 0;
+        left: 0;
+        top: 12.5rem;
+
+        .title {
+            position: relative;
+            color: $blue-0;
+            text-transform: uppercase;
+            width: fit-content;
+            max-width: 100%;
+
+            @include mobile {
+                font-size: 1.3rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -0.5rem;
+                background: $red-0;
+                height: 0.25rem;
+                left: 1.5rem;
+                width: 50%;
+                max-width: 6rem;
+
+                @include mobile {
+                    width: 3rem;
+                }
+            }
+        }
+    }
+
+    div.title-container {
+        min-height: 10rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a.title-container {
+        min-height: 5rem;
+        padding: 2.25rem 0 2.25rem 2rem;
+        text-decoration: none;
+
+        @include mobile {
+            padding: 2.25rem 0 2.25rem 1rem;
+        }
+
+        .arrow-icon {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            color: $gray-1;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        &:hover {
+            background: $blue-0;
+
+            .title {
+                color: $white;
+            }
+
+            .arrow-icon {
+                color: $white;
+            }
+        }
+    }
+
+    .children-container {
+        height: 100%;
+        background: $blue-0;
+        align-self: stretch;
+        display: flex;
+        flex-flow: column;
+        padding: 8rem 2rem 1rem;
+        color: $white;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+        box-shadow: 0.25rem 0.25rem 0.25rem 0.125rem rgba($black, 0.25);
+
+        .link-container {
+            display: flex;
+            align-self: stretch;
+            justify-content: flex-end;
+            margin-top: auto;
+
+            .link {
+                display: flex;
+                gap: 0.5rem;
+                justify-content: center;
+                text-decoration: none;
+                color: $white;
+                font-weight: 400;
+                text-transform: uppercase;
+                padding: 0.5rem 1rem;
+                border: 0.0625rem solid $white;
+                border-radius: 3rem;
+
+                &:hover {
+                    color: $blue-0;
+                    background-color: $white;
+                    border-color: $blue-0;
+                }
+            }
+        }
+    }
+}

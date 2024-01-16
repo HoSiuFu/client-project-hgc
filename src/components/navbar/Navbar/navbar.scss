@@ -1,0 +1,205 @@
+header.nav-header {
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: $white;
+    box-shadow: 0 4px 8px 0 rgba($black, 0.25);
+    z-index: 100;
+    min-height: 3rem;
+    position: sticky;
+
+    .btn-hamb {
+        all: unset;
+        border-radius: 100%;
+        padding: 0.5rem;
+
+        &:hover {
+            background: $gray-0;
+        }
+
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: $dark-gray-1;
+        }
+    }
+
+    @include desktop {
+        padding: 0.5rem 1.5rem;
+
+        .btn-hamb {
+            display: none;
+        }
+    }
+
+    @include apply-to-multiple-media(tablet, mobile) {
+        padding: 0.125rem  1.25rem;
+    }
+
+    .title {
+        text-decoration: none;
+        display: flex;
+        color: $dark-gray-1;
+        letter-spacing: 0.125rem;
+        width: 100%;
+
+        .logo {
+            width: 100%;
+            height: auto;
+            max-height: 2em;
+
+            &:first-child {
+                height: 2.5rem;
+            }
+
+            &:nth-child(2n),
+            &:last-child {
+                height: 3rem;
+                width: auto;
+            }
+
+            @include tablet {
+                &:first-child,
+                &:nth-child(2n),
+                &:last-child {
+                    height: 1.75rem;
+                    width: auto;
+                }
+            }
+
+            @include mobile {
+                &:first-child,
+                &:nth-child(2n),
+                &:last-child {
+                    height: 1.25rem;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    .flex-layout {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .upper-part {
+            align-self: stretch;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand-icon {
+            width: 3.4375rem;
+            height: 3.4375rem;
+        }
+    }
+
+    @include desktop {
+        .flex-layout {
+            .nav {
+                display: flex;
+                bottom: 0;
+                position: relative;
+                overflow: hidden;
+                gap: 1.25rem;
+                align-items: center;
+                justify-content: center;
+                overflow: visible;
+                height: 100%;
+
+                ul.menu {
+                    display: flex;
+                    align-items: center;
+                    justify-self: center;
+                    gap: 1.25rem;
+                    list-style: none;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    @include apply-to-multiple-media(tablet, mobile) {
+        .btn-hamb {
+            display: block;
+        }
+
+        .modal {
+            position: absolute;
+            top:0;
+            left: 0;
+            display: none;
+            background: rgba($dark-gray-1, 0.50);;
+            width: 100dvw;
+            height: 100dvh;
+            z-index: 1;
+
+            &-active {
+                display: block;
+            }
+        }
+
+
+        .flex-layout {
+            flex-flow: column;
+
+            .nav {
+                z-index: 2;
+                position: absolute;
+                align-self: stretch;
+                box-sizing: border-box;
+                padding: 0.625rem 0;
+                display: flex;
+                flex-flow: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                overflow: hidden;
+                background-color: $white;
+                transition: max-width 0.5s ease-out;
+                top: 0;
+                right: 0;
+                width: 15rem;
+                max-width: 0;
+                height: 100dvh;
+                box-shadow: 2px 8px 8px 0 rgba($black, 0.25);
+                gap: 0;
+
+                &.opened {
+                   max-width: 15rem;
+                }
+
+                ul.menu {
+                    padding: 0.5rem 0;
+                    display: flex;
+                    align-self: stretch;
+                    justify-content: flex-start;
+                    align-items: center;
+                    list-style: none;
+                    flex-flow: column;
+                    overflow-y: scroll;
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                    gap: 0;
+                    height: fit-content;
+                    height: 100%;
+                    
+                    &::-webkit-scrollbar { 
+                        width: 0;
+                        height: 0;
+                    }
+
+                    li {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
